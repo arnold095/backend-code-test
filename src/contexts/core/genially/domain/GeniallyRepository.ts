@@ -1,9 +1,9 @@
-import { Genially } from "@genially";
+import { Genially, GeniallyId } from "@genially";
 
 export interface GeniallyRepository {
   save(genially: Genially): Promise<void>;
 
-  find(id: string): Promise<Genially | undefined>;
+  find(id: GeniallyId): Promise<Genially | undefined>;
 
-  delete(id: string): Promise<void>;
+  delete(id: GeniallyId): Promise<void>;
 }
