@@ -1,21 +1,28 @@
 {
+  "root": true,
+  "env": {
+    "node": true,
+    "es2020": true
+  },
   "parser": "@typescript-eslint/parser",
-  "extends": ["plugin:@typescript-eslint/recommended"],
   "parserOptions": {
-    "ecmaVersion": 2018,
+    "ecmaVersion": 2020,
     "sourceType": "module"
   },
+  "plugins": ["prettier", "@typescript-eslint"],
+  "extends": [
+    "standard",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
   "rules": {
-    "semi": ["error", "always"],
-    "quotes": ["error", "double"],
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/no-explicit-any": 1,
-    "@typescript-eslint/no-inferrable-types": [
-      "warn",
-      {
-        "ignoreParameters": true
-      }
-    ],
-    "@typescript-eslint/no-unused-vars": "warn"
+    "no-console": ["error", { "allow": ["info", "error"] }],
+    "no-useless-constructor": "off",
+    "object-shorthand": "error",
+    "prettier/prettier": "error",
+    "prefer-template": "error",
+    "prefer-rest-params": "warn",
+    "prefer-spread": "warn",
+    "prefer-destructuring": "warn"
   }
 }
