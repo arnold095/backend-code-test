@@ -1,15 +1,14 @@
-import Genially from "../domain/Genially";
-import GeniallyRepository from "../domain/GeniallyRepository";
+import { Genially, GeniallyRepository } from "@genially";
 
 export default class InMemoryGeniallyRepository implements GeniallyRepository {
-  private geniallys: Genially[];
+  private geniallys!: Genially[];
 
   async save(genially: Genially): Promise<void> {
     await this.delete(genially.id);
     this.geniallys.push(genially);
   }
 
-  async find(id: string): Promise<Genially> {
+  async find(id: string): Promise<Genially | undefined> {
     return this.geniallys.find((genially) => genially.id === id);
   }
 

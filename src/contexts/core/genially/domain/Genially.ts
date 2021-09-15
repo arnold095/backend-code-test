@@ -1,16 +1,19 @@
-export default class Genially {
-  private _id: string;
-  private _name: string;
-  private _description: string;
-  private _createdAt: Date;
-  private _modifiedAt: Date;
-  private _deletedAt: Date;
+export class Genially {
+  constructor(
+    private _id: string,
+    private _name: string,
+    private _description: string,
+    private _createdAt = new Date(),
+    private _modifiedAt = new Date(),
+    private _deletedAt?: Date
+  ) {}
 
-  constructor(id: string, name: string, description?: string) {
-    this._id = id;
-    this._name = name;
-    this._description = description;
-    this._createdAt = new Date();
+  public static create(
+    id: string,
+    name: string,
+    description: string
+  ): Genially {
+    return new Genially(id, name, description);
   }
 
   get id(): string {
@@ -33,7 +36,7 @@ export default class Genially {
     return this._modifiedAt;
   }
 
-  get deletedAt(): Date {
+  get deletedAt(): Date | undefined {
     return this._deletedAt;
   }
 }
