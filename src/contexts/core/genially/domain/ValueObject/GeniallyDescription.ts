@@ -2,7 +2,7 @@ import { StringValueObject } from "@sharedDomain";
 import { InvalidGeniallyName } from "@genially";
 
 const MIN_LENGTH = 0;
-const MAX_LENGTH = 20;
+const MAX_LENGTH = 125;
 export class GeniallyDescription extends StringValueObject {
   public constructor(value: string) {
     super(value);
