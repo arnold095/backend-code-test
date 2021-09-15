@@ -1,4 +1,6 @@
-export * from "./application/CreateGeniallyService";
+export * from "./application/Create/GeniallyCreator";
+export * from "./application/Create/GeniallyCreateRequest";
+
 export * from "./application/DeleteGeniallyService";
 export * from "./application/RenameGeniallyService";
 

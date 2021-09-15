@@ -31,8 +31,8 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "paths": {
-      "@genially": ["src/contexts/core/genially"],
-      "@sharedDomain": ["src/contexts/shared/domain"]
+      "@sharedDomain": ["src/contexts/shared/domain"],
+      "@genially": ["src/contexts/core/genially"]
     }
   },
   "include": [

@@ -1,5 +1,14 @@
 import { GeniallyDescription, GeniallyId, GeniallyName } from "@genially";
 
+export type GeniallyPrimitives = {
+  id: string;
+  name: string;
+  description: string;
+  createdAt: Date;
+  modifiedAt: Date;
+  deletedAt?: Date;
+};
+
 export class Genially {
   constructor(
     private _id: GeniallyId,
@@ -16,6 +25,17 @@ export class Genially {
     description: GeniallyDescription
   ): Genially {
     return new Genially(id, name, description);
+  }
+
+  public toPrimitives(): GeniallyPrimitives {
+    return {
+      id: this._id.value,
+      name: this._name.value,
+      description: this._description.value,
+      createdAt: this._createdAt,
+      modifiedAt: this._modifiedAt,
+      deletedAt: this._deletedAt,
+    };
   }
 
   get id(): GeniallyId {
