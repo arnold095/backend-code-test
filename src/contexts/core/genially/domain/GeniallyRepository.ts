@@ -1,11 +1,9 @@
-import Genially from "./Genially";
+import { Genially } from "@genially";
 
-interface GeniallyRepository {
+export interface GeniallyRepository {
   save(genially: Genially): Promise<void>;
 
-  find(id: string): Promise<Genially>;
+  find(id: string): Promise<Genially | undefined>;
 
   delete(id: string): Promise<void>;
 }
-
-export default GeniallyRepository;

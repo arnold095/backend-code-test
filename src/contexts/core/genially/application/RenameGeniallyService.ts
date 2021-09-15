@@ -1,7 +1,7 @@
-import Genially from "../domain/Genially";
+import { Genially } from "../domain/Genially";
 
-export default class RenameGeniallyService {
-  public async execute(): Promise<Genially> {
+export class RenameGeniallyService {
+  public async execute(): Promise<Genially | undefined> {
     return undefined;
   }
 }
