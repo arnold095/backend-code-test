@@ -8,6 +8,7 @@ export * from "./domain/Genially";
 export * from "./domain/GeniallyRepository";
 
 export * from "./domain/Exception/InvalidGeniallyName";
+export * from "./domain/Exception/InvalidGeniallyDescription";
 export * from "./domain/Exception/GeniallyNotExist";
 export * from "./domain/Exception/GeniallyAlreadyExists";
 

@@ -13,9 +13,10 @@ type Params = {
 export class GeniallyCreateRequestMother {
   public static create(params: Partial<Params>): GeniallyCreateRequest {
     return plainToClass(GeniallyCreateRequest, {
-      id: GeniallyIdMother.create(params.id).value,
-      name: GeniallyNameMother.create(params.name).value,
-      description: GeniallyDescriptionMother.create(params.description).value,
+      id: params.id ?? GeniallyIdMother.create().value,
+      name: params.name ?? GeniallyNameMother.create().value,
+      description:
+        params.description ?? GeniallyDescriptionMother.create().value,
     });
   }
 }

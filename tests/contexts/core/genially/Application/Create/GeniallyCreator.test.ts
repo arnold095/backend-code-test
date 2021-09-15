@@ -4,9 +4,12 @@ import {
   GeniallyAlreadyExists,
   GeniallyCreator,
   GeniallyId,
+  InvalidGeniallyDescription,
+  InvalidGeniallyName,
 } from "../../../../../../src/contexts/core/genially";
 import { MockGeniallyRepository } from "../../Mock/MockGeniallyRepository";
 import { GeniallyCreateRequestMother } from "./GeniallyCreateRequestMother";
+import { MotherCreator } from "../../../shared/Domain/MotherCreator";
 
 const repository = new MockGeniallyRepository();
 const creator = new GeniallyCreator(repository);
@@ -42,6 +45,28 @@ describe("GeniallyCreator", () => {
     await expect(creator.run(params)).rejects.toHaveProperty(
       "code",
       GeniallyAlreadyExists.ERROR_CODE
+    );
+  });
+
+  it("should fail when genially name is invalid", async () => {
+    expect.assertions(1);
+    const params = GeniallyCreateRequestMother.create({
+      name: MotherCreator.random().datatype.string(200),
+    });
+    await expect(creator.run(params)).rejects.toHaveProperty(
+      "code",
+      InvalidGeniallyName.ERROR_CODE
+    );
+  });
+
+  it("should fail when genially description is invalid", async () => {
+    expect.assertions(1);
+    const params = GeniallyCreateRequestMother.create({
+      description: MotherCreator.random().datatype.string(200),
+    });
+    await expect(creator.run(params)).rejects.toHaveProperty(
+      "code",
+      InvalidGeniallyDescription.ERROR_CODE
     );
   });
 });
