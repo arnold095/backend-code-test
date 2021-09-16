@@ -13,11 +13,13 @@ services:
   BackendCoreTest.Core.Genially.GeniallyRenamer:
     class: ../../../contexts/core/genially/application/Update/GeniallyRenamer
     arguments: [
-        '@BackendCoreTest.Core.Genially.GeniallyRepository'
+        '@BackendCoreTest.Core.Genially.GeniallyRepository',
+        '@Shared.EventBus',
     ]
 
   BackendCoreTest.Core.Genially.GeniallyRemover:
     class: ../../../contexts/core/genially/application/Remove/GeniallyRemover
     arguments: [
-        '@BackendCoreTest.Core.Genially.GeniallyRepository'
+        '@BackendCoreTest.Core.Genially.GeniallyRepository',
+        '@Shared.EventBus',
     ]
