@@ -1,0 +1,18 @@
+services:
+  GeniallyPostController:
+    class: ../../controllers/Genially/Post/GeniallyPostController
+    arguments: [
+      "@BackendCoreTest.Core.Genially.GeniallyCreator"
+    ]
+
+  GeniallyPutController:
+    class: ../../controllers/Genially/Put/GeniallyPutController
+    arguments: [
+      "@BackendCoreTest.Core.Genially.GeniallyRenamer"
+    ]
+
+  GeniallyRemovePutController:
+    class: ../../controllers/Genially/Put/GeniallyRemovePutController
+    arguments: [
+      "@BackendCoreTest.Core.Genially.GeniallyRemover"
+    ]

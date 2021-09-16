@@ -32,6 +32,7 @@
     "skipLibCheck": true,
     "paths": {
       "@sharedDomain": ["src/contexts/shared/domain"],
+      "@sharedInfrastructure": ["src/contexts/shared/infrastructure"],
       "@genially": ["src/contexts/core/genially"]
     }
   },
