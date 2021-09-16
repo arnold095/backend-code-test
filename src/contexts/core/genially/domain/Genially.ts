@@ -65,7 +65,18 @@ export class Genially {
       description: this._description.value,
       createdAt: this._createdAt,
       modifiedAt: this._modifiedAt,
-      deletedAt: this._deletedAt,
+      deletedAt: this?._deletedAt,
     };
+  }
+
+  public static fromPrimitives(geniallyFound: GeniallyPrimitives): Genially {
+    return new Genially(
+      new GeniallyId(geniallyFound.id),
+      new GeniallyName(geniallyFound.name),
+      new GeniallyDescription(geniallyFound.description),
+      geniallyFound.createdAt,
+      geniallyFound.modifiedAt,
+      geniallyFound.deletedAt
+    );
   }
 }
