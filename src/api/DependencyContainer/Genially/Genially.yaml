@@ -6,7 +6,8 @@ services:
   BackendCoreTest.Core.Genially.GeniallyCreator:
     class: ../../../contexts/core/genially/application/Create/GeniallyCreator
     arguments: [
-        '@BackendCoreTest.Core.Genially.GeniallyRepository'
+        '@BackendCoreTest.Core.Genially.GeniallyRepository',
+        '@Shared.EventBus',
     ]
 
   BackendCoreTest.Core.Genially.GeniallyRenamer:

@@ -33,6 +33,7 @@
     "paths": {
       "@sharedDomain": ["src/contexts/shared/domain"],
       "@sharedInfrastructure": ["src/contexts/shared/infrastructure"],
+      "@geniallyCounter": ["src/contexts/core/geniallyCounter"],
       "@genially": ["src/contexts/core/genially"]
     }
   },

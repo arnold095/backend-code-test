@@ -1,0 +1,19 @@
+services:
+  BackendCoreTest.Core.GeniallyCounter.GeniallyCounterRepository:
+    class: ../../../contexts/core/geniallyCounter/Infrastructure/Persistence/MongoDb/MongoDbGeniallyCounterRepository
+    arguments: ['@Shared.MongoDbProvider']
+
+  BackendCoreTest.Core.GeniallyCounter.GeniallyCounterIncrementer:
+    class: ../../../contexts/core/geniallyCounter/Application/Increment/GeniallyCounterIncrementer
+    arguments: [
+      '@BackendCoreTest.Core.GeniallyCounter.GeniallyCounterRepository',
+      '@Shared.EventBus'
+    ]
+
+  BackendCoreTest.Core.GeniallyCounter.IncrementGeniallyCounterOnGeniallyCreated:
+    class: ../../../contexts/core/geniallyCounter/Application/Increment/IncrementGeniallyCounterOnGeniallyCreated
+    arguments: [
+      '@BackendCoreTest.Core.GeniallyCounter.GeniallyCounterIncrementer'
+    ]
+    tags:
+      - { name: 'DomainEventSubscriber' }

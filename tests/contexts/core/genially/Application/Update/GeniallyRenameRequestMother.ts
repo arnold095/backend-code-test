@@ -1,6 +1,6 @@
 import { GeniallyRenameRequest } from "../../../../../../src/contexts/core/genially";
 import { plainToClass } from "class-transformer";
-import { MotherCreator } from "../../../shared/Domain/MotherCreator";
+import { MotherCreator } from "../../../../shared/Domain/MotherCreator";
 
 type Params = {
   name: string;

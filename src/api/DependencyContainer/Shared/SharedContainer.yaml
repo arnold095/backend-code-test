@@ -5,3 +5,6 @@ services:
   Shared.MongoDbClient:
     class: ../../../contexts/shared/infrastructure/Persistence/MongoDb/MongoDbClient
     arguments: ['@Shared.MongoDbProvider']
+
+  Shared.EventBus:
+    class: ../../../contexts/shared/infrastructure/EventBus/InMemory/InMemorySyncEventBus

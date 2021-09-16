@@ -14,6 +14,8 @@ export * from "./domain/Exception/GeniallyAlreadyExists";
 export * from "./domain/Exception/GeniallyHasBeenDeleted";
 export * from "./domain/Exception/GeniallyNotExist";
 
+export * from "./domain/Events/GeniallyCreatedDomainEvent";
+
 export * from "./domain/Services/GeniallyFinder";
 
 export * from "./domain/ValueObject/GeniallyId";
