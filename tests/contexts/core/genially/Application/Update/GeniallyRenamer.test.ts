@@ -9,9 +9,10 @@ import {
 import { UuidMother } from "../../../shared/Domain/UuidMother";
 import { GeniallyRenameRequestMother } from "./GeniallyRenameRequestMother";
 import { GeniallyMother } from "../../Domain/GeniallyMother";
+import { MockEventBus } from "../../../../shared/Infrastructure/MockEventBus";
 
 const repository = new MockGeniallyRepository();
-const renamer = new GeniallyRenamer(repository);
+const renamer = new GeniallyRenamer(repository, new MockEventBus());
 
 describe("GeniallyRemover", () => {
   let existingGenially: Genially;

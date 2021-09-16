@@ -10,9 +10,10 @@ import {
 import { MockGeniallyRepository } from "../../Mock/MockGeniallyRepository";
 import { GeniallyCreateRequestMother } from "./GeniallyCreateRequestMother";
 import { MotherCreator } from "../../../shared/Domain/MotherCreator";
+import { MockEventBus } from "../../../../shared/Infrastructure/MockEventBus";
 
 const repository = new MockGeniallyRepository();
-const creator = new GeniallyCreator(repository);
+const creator = new GeniallyCreator(repository, new MockEventBus());
 
 describe("GeniallyCreator", () => {
   let existingGenially: Genially;

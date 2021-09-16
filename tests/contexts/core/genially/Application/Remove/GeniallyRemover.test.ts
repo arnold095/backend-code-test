@@ -7,9 +7,10 @@ import {
   GeniallyHasBeenDeleted,
 } from "../../../../../../src/contexts/core/genially";
 import { UuidMother } from "../../../shared/Domain/UuidMother";
+import { MockEventBus } from "../../../../shared/Infrastructure/MockEventBus";
 
 const repository = new MockGeniallyRepository();
-const remover = new GeniallyRemover(repository);
+const remover = new GeniallyRemover(repository, new MockEventBus());
 
 describe("GeniallyRemover", () => {
   let existingGenially: Genially;
