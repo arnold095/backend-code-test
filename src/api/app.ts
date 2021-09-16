@@ -10,6 +10,7 @@ import { join } from "path";
 import { IocAdapter } from "@sharedDomain";
 import { GeniallyPostController } from "./controllers/Genially/Post/GeniallyPostController";
 import { GeniallyPutController } from "./controllers/Genially/Put/GeniallyPutController";
+import { GeniallyRemovePutController } from "./controllers/Genially/Put/GeniallyRemovePutController";
 
 // Create Express server
 const app = express();
@@ -35,6 +36,10 @@ const loadRoutes = (iocContainer: IocAdapter): void => {
   const geniallyPutController = iocContainer.get<GeniallyPutController>(
     "GeniallyPutController"
   );
+  const geniallyRemovePutController =
+    iocContainer.get<GeniallyRemovePutController>(
+      "GeniallyRemovePutController"
+    );
   app.post(
     "/genially",
     geniallyPostController.run.bind(geniallyPostController)
@@ -42,6 +47,10 @@ const loadRoutes = (iocContainer: IocAdapter): void => {
   app.put(
     "/genially/:id",
     geniallyPutController.run.bind(geniallyPutController)
+  );
+  app.put(
+    "/genially/:id/delete",
+    geniallyRemovePutController.run.bind(geniallyRemovePutController)
   );
 };
 loadRoutes(iocContainer);

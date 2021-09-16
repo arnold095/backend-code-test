@@ -13,3 +13,9 @@ services:
     arguments: [
         '@BackendCoreTest.Core.Genially.GeniallyRepository'
     ]
+
+  BackendCoreTest.Core.Genially.GeniallyRemover:
+    class: ../../../contexts/core/genially/application/Remove/GeniallyRemover
+    arguments: [
+        '@BackendCoreTest.Core.Genially.GeniallyRepository'
+    ]

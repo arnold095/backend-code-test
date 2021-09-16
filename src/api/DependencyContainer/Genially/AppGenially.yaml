@@ -10,3 +10,9 @@ services:
     arguments: [
       "@BackendCoreTest.Core.Genially.GeniallyRenamer"
     ]
+
+  GeniallyRemovePutController:
+    class: ../../controllers/Genially/Put/GeniallyRemovePutController
+    arguments: [
+      "@BackendCoreTest.Core.Genially.GeniallyRemover"
+    ]
