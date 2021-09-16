@@ -4,3 +4,9 @@ services:
     arguments: [
       "@BackendCoreTest.Core.Genially.GeniallyCreator"
     ]
+
+  GeniallyPutController:
+    class: ../../controllers/Genially/Put/GeniallyPutController
+    arguments: [
+      "@BackendCoreTest.Core.Genially.GeniallyRenamer"
+    ]

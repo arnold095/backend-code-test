@@ -9,6 +9,7 @@ import { NodeDependencyInjectionIocAdapter } from "@sharedInfrastructure";
 import { join } from "path";
 import { IocAdapter } from "@sharedDomain";
 import { GeniallyPostController } from "./controllers/Genially/Post/GeniallyPostController";
+import { GeniallyPutController } from "./controllers/Genially/Put/GeniallyPutController";
 
 // Create Express server
 const app = express();
@@ -31,9 +32,16 @@ const loadRoutes = (iocContainer: IocAdapter): void => {
   const geniallyPostController = iocContainer.get<GeniallyPostController>(
     "GeniallyPostController"
   );
+  const geniallyPutController = iocContainer.get<GeniallyPutController>(
+    "GeniallyPutController"
+  );
   app.post(
     "/genially",
     geniallyPostController.run.bind(geniallyPostController)
+  );
+  app.put(
+    "/genially/:id",
+    geniallyPutController.run.bind(geniallyPutController)
   );
 };
 loadRoutes(iocContainer);
