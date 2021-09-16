@@ -3,17 +3,21 @@ import { AggregateRoot, Uuid } from "@sharedDomain";
 
 export type GeniallyCounterPrimitives = {
   id: string;
-  geniallyCounter: number;
+  counterTotal: number;
   updatedAt: Date;
 };
 
 export class GeniallyCounter extends AggregateRoot {
   constructor(
-    private id: GeniallyCounterId,
-    private geniallyCounter: GeniallyCounterTotal,
+    private _id: GeniallyCounterId,
+    private counterTotal: GeniallyCounterTotal,
     private updatedAt = new Date()
   ) {
     super();
+  }
+
+  get id(): GeniallyCounterId {
+    return this._id;
   }
 
   public static initialize(): GeniallyCounter {
@@ -24,25 +28,25 @@ export class GeniallyCounter extends AggregateRoot {
   }
 
   public increment(): void {
-    this.geniallyCounter = this.geniallyCounter.increment();
+    this.counterTotal = this.counterTotal.increment();
   }
 
   public toPrimitives(): GeniallyCounterPrimitives {
     return {
-      id: this.id.value,
-      geniallyCounter: this.geniallyCounter.value,
+      id: this._id.value,
+      counterTotal: this.counterTotal.value,
       updatedAt: this.updatedAt,
     };
   }
 
   public static fromPrimitives({
     id,
-    geniallyCounter,
+    counterTotal,
     updatedAt,
   }: GeniallyCounterPrimitives): GeniallyCounter {
     return new GeniallyCounter(
       new GeniallyCounterId(id),
-      new GeniallyCounterTotal(geniallyCounter),
+      new GeniallyCounterTotal(counterTotal),
       updatedAt
     );
   }
