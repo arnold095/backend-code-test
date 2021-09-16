@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+require("dotenv").config({ path: "./.env" });
 const tsconfig = require("./tsconfig.json");
 const moduleNameMapper = require("tsconfig-paths-jest")(tsconfig);
 module.exports = {
