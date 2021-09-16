@@ -22,8 +22,10 @@ After(async () => {
     MockApp.iocAdapter.get<MongoDbGeniallyCounterRepository>(
       "BackendCoreTest.Core.GeniallyCounter.GeniallyCounterRepository"
     );
-  await geniallyRepository.drop();
-  await counterRepository.drop();
+  try {
+    await geniallyRepository.drop();
+    await counterRepository.drop();
+  } catch (e) {}
   await app.close();
 });
 
