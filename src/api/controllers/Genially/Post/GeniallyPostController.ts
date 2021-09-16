@@ -6,6 +6,6 @@ export class GeniallyPostController {
 
   public async run(request: Request, response: Response): Promise<void> {
     await this.creator.run(request.body);
-    response.status(201).send({ status: "ok" });
+    response.status(201).send({});
   }
 }
