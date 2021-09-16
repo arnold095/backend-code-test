@@ -1,5 +1,6 @@
 export * from "./application/Create/GeniallyCreator";
 export * from "./application/Create/GeniallyCreateRequest";
+export * from "./application/Remove/GeniallyRemover";
 
 export * from "./application/DeleteGeniallyService";
 export * from "./application/RenameGeniallyService";
@@ -9,8 +10,11 @@ export * from "./domain/GeniallyRepository";
 
 export * from "./domain/Exception/InvalidGeniallyName";
 export * from "./domain/Exception/InvalidGeniallyDescription";
-export * from "./domain/Exception/GeniallyNotExist";
 export * from "./domain/Exception/GeniallyAlreadyExists";
+export * from "./domain/Exception/GeniallyHasBeenDeleted";
+export * from "./domain/Exception/GeniallyNotExist";
+
+export * from "./domain/Services/GeniallyFinder";
 
 export * from "./domain/ValueObject/GeniallyId";
 export * from "./domain/ValueObject/GeniallyName";

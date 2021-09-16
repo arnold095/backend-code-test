@@ -1,4 +1,9 @@
-import { GeniallyDescription, GeniallyId, GeniallyName } from "@genially";
+import {
+  GeniallyDescription,
+  GeniallyId,
+  GeniallyHasBeenDeleted,
+  GeniallyName,
+} from "@genially";
 
 export type GeniallyPrimitives = {
   id: string;
@@ -27,6 +32,22 @@ export class Genially {
     return new Genially(id, name, description);
   }
 
+  get id(): GeniallyId {
+    return this._id;
+  }
+
+  public hasBeenDeleted(): void {
+    if (undefined !== this._deletedAt) {
+      throw new GeniallyHasBeenDeleted();
+    }
+    this._deletedAt = new Date();
+    this.hasBeenModified();
+  }
+
+  private hasBeenModified(): void {
+    this._modifiedAt = new Date();
+  }
+
   public toPrimitives(): GeniallyPrimitives {
     return {
       id: this._id.value,
@@ -36,29 +57,5 @@ export class Genially {
       modifiedAt: this._modifiedAt,
       deletedAt: this._deletedAt,
     };
-  }
-
-  get id(): GeniallyId {
-    return this._id;
-  }
-
-  get name(): GeniallyName {
-    return this._name;
-  }
-
-  get description(): GeniallyDescription {
-    return this._description;
-  }
-
-  get createdAt(): Date {
-    return this._createdAt;
-  }
-
-  get modifiedAt(): Date {
-    return this._modifiedAt;
-  }
-
-  get deletedAt(): Date | undefined {
-    return this._deletedAt;
   }
 }
