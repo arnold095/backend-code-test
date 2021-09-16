@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const tsconfig = require("./tsconfig.json");
-console.info(tsconfig);
 const moduleNameMapper = require("tsconfig-paths-jest")(tsconfig);
 module.exports = {
   clearMocks: true,

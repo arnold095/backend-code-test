@@ -1,30 +1,52 @@
+import { GeniallyDescription, GeniallyId, GeniallyName } from "@genially";
+
+export type GeniallyPrimitives = {
+  id: string;
+  name: string;
+  description: string;
+  createdAt: Date;
+  modifiedAt: Date;
+  deletedAt?: Date;
+};
+
 export class Genially {
   constructor(
-    private _id: string,
-    private _name: string,
-    private _description: string,
+    private _id: GeniallyId,
+    private _name: GeniallyName,
+    private _description: GeniallyDescription,
     private _createdAt = new Date(),
     private _modifiedAt = new Date(),
     private _deletedAt?: Date
   ) {}
 
   public static create(
-    id: string,
-    name: string,
-    description: string
+    id: GeniallyId,
+    name: GeniallyName,
+    description: GeniallyDescription
   ): Genially {
     return new Genially(id, name, description);
   }
 
-  get id(): string {
+  public toPrimitives(): GeniallyPrimitives {
+    return {
+      id: this._id.value,
+      name: this._name.value,
+      description: this._description.value,
+      createdAt: this._createdAt,
+      modifiedAt: this._modifiedAt,
+      deletedAt: this._deletedAt,
+    };
+  }
+
+  get id(): GeniallyId {
     return this._id;
   }
 
-  get name(): string {
+  get name(): GeniallyName {
     return this._name;
   }
 
-  get description(): string {
+  get description(): GeniallyDescription {
     return this._description;
   }
 
