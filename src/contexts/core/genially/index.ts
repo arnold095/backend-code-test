@@ -20,4 +20,5 @@ export * from "./domain/ValueObject/GeniallyId";
 export * from "./domain/ValueObject/GeniallyName";
 export * from "./domain/ValueObject/GeniallyDescription";
 
-export * from "./infrastructure/InMemoryGeniallyRepository";
+export * from "./infrastructure/Persistence/Memory/InMemoryGeniallyRepository";
+export * from "./infrastructure/Persistence/MongoDb/MongoDbGeniallyRepository";

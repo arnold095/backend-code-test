@@ -1,6 +1,7 @@
 services:
   BackendCoreTest.Core.Genially.GeniallyRepository:
-    class: ../../../contexts/core/genially/infrastructure/InMemoryGeniallyRepository
+    class: ../../../contexts/core/genially/infrastructure/Persistence/MongoDb/MongoDbGeniallyRepository
+    arguments: ['@Shared.MongoDbProvider']
 
   BackendCoreTest.Core.Genially.GeniallyCreator:
     class: ../../../contexts/core/genially/application/Create/GeniallyCreator

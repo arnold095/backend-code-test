@@ -1,0 +1,7 @@
+services:
+  Shared.MongoDbProvider:
+    class: ../../../contexts/shared/infrastructure/Persistence/MongoDb/MongoDbProvider
+
+  Shared.MongoDbClient:
+    class: ../../../contexts/shared/infrastructure/Persistence/MongoDb/MongoDbClient
+    arguments: ['@Shared.MongoDbProvider']
