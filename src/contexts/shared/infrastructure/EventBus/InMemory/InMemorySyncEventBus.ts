@@ -1,11 +1,15 @@
 import { DomainEvent, DomainEventSubscriber, EventBus } from "@sharedDomain";
 
 export class InMemorySyncEventBus implements EventBus {
-  private subscriptions: Map<string, [DomainEventSubscriber]> = new Map();
+  private subscriptions!: Map<string, [DomainEventSubscriber]>;
+  private subscribers!: DomainEventSubscriber[];
 
-  public constructor(private subscribers: DomainEventSubscriber[]) {}
+  public addSubscribers(subscribers: DomainEventSubscriber[]): void {
+    this.subscribers = subscribers;
+  }
 
   public load(): void {
+    this.subscriptions = new Map();
     for (const subscriber of this.subscribers) {
       for (const domainEvent of subscriber.subscribedTo()) {
         this.subscribe(domainEvent.eventName, subscriber);
@@ -26,10 +30,17 @@ export class InMemorySyncEventBus implements EventBus {
     for (const domainEvent of domainEvents) {
       const subscribers = this.subscriptions.get(domainEvent.eventName);
       if (subscribers) {
-        for (const subscriber of subscribers) {
-          await subscriber.on(domainEvent);
-        }
+        await this.consume(subscribers, domainEvent);
       }
+    }
+  }
+
+  private async consume(
+    subscribers: DomainEventSubscriber[],
+    domainEvent: DomainEvent
+  ) {
+    for (const subscriber of subscribers) {
+      await subscriber.on(domainEvent);
     }
   }
 }

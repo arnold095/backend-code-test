@@ -2,3 +2,4 @@ imports:
   - { resource: ./Shared/SharedContainer.yaml }
   - { resource: ./Genially/AppGenially.yaml }
   - { resource: ./Genially/Genially.yaml }
+  - { resource: ./GeniallyCounter/GeniallyCounter.yaml }
