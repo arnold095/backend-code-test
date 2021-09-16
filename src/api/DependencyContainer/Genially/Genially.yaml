@@ -1,0 +1,9 @@
+services:
+  BackendCoreTest.Core.Genially.GeniallyRepository:
+    class: ../../../contexts/core/genially/infrastructure/InMemoryGeniallyRepository
+
+  BackendCoreTest.Core.Genially.GeniallyCreator:
+    class: ../../../contexts/core/genially/application/Create/GeniallyCreator
+    arguments: [
+      '@BackendCoreTest.Core.Genially.GeniallyRepository'
+    ]

@@ -1,0 +1,6 @@
+services:
+  GeniallyPostController:
+    class: ../../controllers/Genially/Post/GeniallyPostController
+    arguments: [
+      "@BackendCoreTest.Core.Genially.GeniallyCreator"
+    ]

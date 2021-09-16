@@ -1,0 +1,3 @@
+imports:
+  - { resource: ./Genially/AppGenially.yaml }
+  - { resource: ./Genially/Genially.yaml }

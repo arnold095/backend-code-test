@@ -23,6 +23,7 @@
     "compression": "^1.7.4",
     "express": "^4.17.1",
     "lusca": "^1.6.1",
+    "node-dependency-injection": "^2.7.1",
     "reflect-metadata": "^0.1.13",
     "uuid": "^8.3.2"
   },

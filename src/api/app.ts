@@ -5,6 +5,10 @@ import lusca from "lusca";
 
 // Controllers (route handlers)
 import * as healthController from "./controllers/health";
+import { NodeDependencyInjectionIocAdapter } from "@sharedInfrastructure";
+import { join } from "path";
+import { IocAdapter } from "@sharedDomain";
+import { GeniallyPostController } from "./controllers/Genially/Post/GeniallyPostController";
 
 // Create Express server
 const app = express();
@@ -18,6 +22,20 @@ app.use(lusca.xframe("SAMEORIGIN"));
 app.use(lusca.xssProtection(true));
 
 // Primary app routes
-app.get("/", healthController.check);
+const iocContainer = new NodeDependencyInjectionIocAdapter(
+  join(__dirname, "./DependencyContainer/Container.yaml")
+);
+
+const loadRoutes = (iocContainer: IocAdapter): void => {
+  app.get("/", healthController.check);
+  const geniallyPostController = iocContainer.get<GeniallyPostController>(
+    "GeniallyPostController"
+  );
+  app.post(
+    "/genially",
+    geniallyPostController.run.bind(geniallyPostController)
+  );
+};
+loadRoutes(iocContainer);
 
 export default app;
