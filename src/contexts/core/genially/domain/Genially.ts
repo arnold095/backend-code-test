@@ -37,15 +37,25 @@ export class Genially {
   }
 
   public hasBeenDeleted(): void {
-    if (undefined !== this._deletedAt) {
-      throw new GeniallyHasBeenDeleted();
-    }
+    this.ensureThatGeniallyIsNotDeleted();
     this._deletedAt = new Date();
     this.hasBeenModified();
   }
 
   private hasBeenModified(): void {
     this._modifiedAt = new Date();
+  }
+
+  public rename(name: GeniallyName): void {
+    this.ensureThatGeniallyIsNotDeleted();
+    this._name = name;
+    this.hasBeenModified();
+  }
+
+  private ensureThatGeniallyIsNotDeleted(): void {
+    if (undefined !== this._deletedAt) {
+      throw new GeniallyHasBeenDeleted();
+    }
   }
 
   public toPrimitives(): GeniallyPrimitives {
