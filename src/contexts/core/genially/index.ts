@@ -2,8 +2,8 @@ export * from "./application/Create/GeniallyCreator";
 export * from "./application/Create/GeniallyCreateRequest";
 export * from "./application/Remove/GeniallyRemover";
 
-export * from "./application/DeleteGeniallyService";
-export * from "./application/RenameGeniallyService";
+export * from "./application/Update/GeniallyRenamer";
+export * from "./application/Update/GeniallyRenameRequest";
 
 export * from "./domain/Genially";
 export * from "./domain/GeniallyRepository";
