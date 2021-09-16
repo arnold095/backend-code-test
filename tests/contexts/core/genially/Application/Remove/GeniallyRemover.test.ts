@@ -6,7 +6,7 @@ import {
   GeniallyRemover,
   GeniallyHasBeenDeleted,
 } from "../../../../../../src/contexts/core/genially";
-import { UuidMother } from "../../../shared/Domain/UuidMother";
+import { UuidMother } from "../../../../shared/Domain/UuidMother";
 import { MockEventBus } from "../../../../shared/Infrastructure/MockEventBus";
 
 const repository = new MockGeniallyRepository();

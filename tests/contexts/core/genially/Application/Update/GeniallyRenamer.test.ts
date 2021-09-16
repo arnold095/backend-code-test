@@ -6,7 +6,7 @@ import {
   GeniallyHasBeenDeleted,
   GeniallyRenamer,
 } from "../../../../../../src/contexts/core/genially";
-import { UuidMother } from "../../../shared/Domain/UuidMother";
+import { UuidMother } from "../../../../shared/Domain/UuidMother";
 import { GeniallyRenameRequestMother } from "./GeniallyRenameRequestMother";
 import { GeniallyMother } from "../../Domain/GeniallyMother";
 import { MockEventBus } from "../../../../shared/Infrastructure/MockEventBus";

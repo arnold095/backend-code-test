@@ -4,8 +4,8 @@ import {
   MongoDbClient,
   MongoDbProvider,
 } from "../../../../../../src/contexts/shared/infrastructure";
-import { MotherCreator } from "../../../../core/shared/Domain/MotherCreator";
-import { UuidMother } from "../../../../core/shared/Domain/UuidMother";
+import { MotherCreator } from "../../../Domain/MotherCreator";
+import { UuidMother } from "../../../Domain/UuidMother";
 
 let mongoDbClient: MongoDbClient;
 const existingId = UuidMother.random();

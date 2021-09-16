@@ -4,7 +4,7 @@ import {
   GeniallyCounterPrimitives,
   GeniallyCounterTotal,
 } from "../../../../../src/contexts/core/geniallyCounter";
-import { UuidMother } from "../../shared/Domain/UuidMother";
+import { UuidMother } from "../../../shared/Domain/UuidMother";
 
 export class GeniallyCounterMother {
   public static create(
