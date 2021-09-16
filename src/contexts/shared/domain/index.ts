@@ -1,3 +1,8 @@
+export * from "./Aggregate/AggregateRoot";
+export * from "./Bus/Event/DomainEvent";
+export * from "./Bus/Event/DomainEventSubscriber";
+export * from "./Bus/Event/EventBus";
+
 export * from "./Exception/BaseError";
 export * from "./Exception/InvalidArgumentError";
 export * from "./Services/IocAdapter";
